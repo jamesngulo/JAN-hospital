@@ -1,2 +1,411 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+            <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAN HOSPITAL 2</title>
+    <style>
+        /* General Styles */
+        body {
+            background-color: #d5e4e7;
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            scroll-padding-top: 100px; /* Adjust this value to match the height of the fixed header and nav bar */
+        }
+
+        h1, h2, h3 {
+            margin: 0;
+        }
+
+        /* Header Styles */
+        header {
+            position: sticky;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+            background-color: #2c3e50;
+            color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            text-align: center;
+            font-size: 36px;
+            margin: 0;
+        }
+
+        /* Navigation Bar Styles */
+        .nav-bar {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0;
+            display: flex;
+            justify-content: center;
+            background-color: #34495e;
+        }
+
+        .nav-bar li {
+            margin: 0 15px;
+        }
+
+        .nav-bar a {
+            text-decoration: none;
+            color: #ecf0f1;
+            font-size: 18px;
+            padding: 10px 15px;
+            display: block;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .nav-bar a:hover {
+            background-color: #e74c3c;
+            color: #ffffff;
+            border-radius: 5px;
+        }
+        .button a:hover {
+            background-color: #e74c3c;
+            color: #ffffff;
+            border-radius: 5px;
+        }
+
+        /* Content Spacing */
+        h2 {
+            color: #fcfcfc; /* Text color */
+            text-align: center; /* Center-align the text */
+            font-size: 28px; /* Font size */
+            margin-top: 20px; /* Space above the h2 */
+            position: relative; /* Ensures proper stacking context */
+            background-image: url('king.png'); /* Set the image as the background */
+            background-size: cover; /* Ensures the image covers the entire h2 */
+            background-position: center; /* Centers the image */
+            background-repeat: no-repeat; /* Prevents the image from repeating */
+            padding: 20px; /* Adds padding inside the h2 for better spacing */
+        }
+
+        h2[id] {
+            scroll-margin-top: 150px; /* Ensures the section starts below the fixed header when navigated to */
+        }
+        h3[id] {
+            scroll-margin-top: 150px; /* Ensures the section starts below the fixed header when navigated to */
+        }
+    
+        
+        h4[id] {
+            scroll-margin-top: 170px; /* Ensures the section starts below the fixed header when navigated to */
+        }
+
+        h3 {
+            color: #34495e;
+            font-size: 24px;
+            margin-top: 30px;
+        }
+
+
+        /* Footer Styles */
+        footer {
+            text-align: left;
+            padding: 20px;
+            background-color: #9ec58c;
+            color: #ffffff;
+            margin-top: 30px;
+        }
+
+        footer a {
+            color: #8d86da;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Styles for OUR VALUES list */
+        .values-list {
+            display: flex;
+            flex-wrap: wrap; /* Allows items to wrap to the next line */
+            justify-content: center; /* Centers the items horizontally */
+            gap: 20px; /* Adds spacing between items */
+            list-style: none; /* Removes default bullet points */
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .values-list li {
+            background-color: #2c3e50; /* Adds a background color */
+            color: #ffffff; /* Sets text color */
+            padding: 10px 15px; /* Adds padding inside each item */
+            border-radius: 5px; /* Rounds the corners */
+            text-align: center; /* Centers the text inside each item */
+            font-size: 16px; /* Adjusts font size */
+            min-width: 120px; /* Ensures consistent width for items */
+        }
+         /* Slideshow container styles */
+        .slideshow-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            }
+
+        .slideshow {
+            margin-left: 20px;
+            width: 300px;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+            border: 2px solid #ccc;
+            border-radius: 5px; 
+          }
+        .slideshow img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: relative;         
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+           }
+
+        .slideshow img.active {
+         opacity: 1;
+         }
+   
+        /* Positioning the image behind the h2 text */
+        h2 {
+            color: #ffffff;
+            text-align: center;
+            font-size: 28px;
+            margin-top: 20px;
+            position: relative; /* Makes h2 the reference point for absolutely positioned children */
+        }
+
+        h2 img {
+            position: absolute; /* Positions the image relative to the h2 */
+            top: 0; /* Adjusts the vertical position */
+            left: 50%; /* Centers the image horizontally */
+            transform: translate(-50%, -50%); /* Centers the image exactly */
+            z-index: -1; /* Places the image behind the text */
+            width: 100px; /* Adjust the size of the image */
+            height: auto; /* Maintains aspect ratio */
+            opacity: 0.2; /* Makes the image semi-transparent for better readability */
+        }
+
+        /* Add this CSS at the end of your <style> section */
+        .hover-name {
+            position: relative;
+            cursor: pointer;
+        }
+        .hover-img {
+            display: none;
+            position: absolute;
+            left: 100%;
+            top: 0;
+            width: 120px;
+            height: auto;
+            border: 2px solid #34495e;
+            border-radius: 5px;
+            background: #fff;
+            z-index: 10;
+            margin-left: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        .hover-name:hover .hover-img {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>NGULO HIGH-HOSPITAL</h1>
+        <nav>
+            <ul class="nav-bar">
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h2> We care and treat with (Love, Passion, and Great Hospitality)<br><br>We consider nature as our another great treatment and nursing</h2>
+
+    <h3 id="about">ABOUT US</h3>
+    <p>JAN HOSPITAL is a leading healthcare provider dedicated to delivering high-quality medical services to our patients. Our team of experienced professionals is committed to providing compassionate care and innovative treatments.</p>
+    <a href="#management">
+        <button style="
+            background-color: #2c3e50; 
+            color: #ffffff; 
+            border: none; 
+            padding: 10px 20px; 
+            font-size: 16px; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            transition: background-color 0.3s;">
+            Management
+        </button>
+    </a>
+
+    <h3>OUR MISSION</h3>
+    <p>To provide the best healthcare services to our patients with love and passion.</p>
+
+    <h3>OUR VISION</h3>
+    <p>To be the leading healthcare provider in the world, known for our commitment to quality and compassion.</p>
+
+    <h3>OUR VALUES</h3>
+    <ul class="values-list">
+        <li>Compassion</li>
+        <li>Integrity</li>
+        <li>Excellence</li>
+        <li>Teamwork</li>
+        <li>Innovation</li>
+        <li>Respect</li>
+        <li>Accountability</li>
+        <li>Empathy</li>
+        <li>Quality</li>
+        <li>Trust</li>
+    </ul>
+
+    <h2 id="services">SERVICES PROVIDED</h2>
+    <p>We offer a wide range of services to meet the healthcare needs of our patients.</p>
+    <p>Our services include:</p>
+    <ol>
+        <li><a href="#general-medicine">General Medicine</a></li>
+        <li><a href="#surgery">Surgery</a></li>
+        <li><a href="#pediatrics">Pediatrics</a></li>
+        <li><a href="#gynecology">Gynecology</a></li>
+        <li><a href="#orthopedics">Orthopedics</a></li>
+        <li><a href="#cardiology">Cardiology</a></li>
+        <li><a href="#dermatology">Dermatology</a></li>
+        <li><a href="#neurology">Neurology</a></li>
+        <li><a href="#radiology">Radiology</a></li>
+        <li><a href="#pathology">Pathology</a></li>
+        <li><a href="#pharmacy">Pharmacy</a></li>
+        <li><a href="#physiotherapy">Physiotherapy</a></li>
+        <li><a href="#occupational-therapy">Occupational Therapy</a></li>
+        <li><a href="#speech-therapy">Speech Therapy</a></li>
+        <li><a href="#nutrition-and-dietetics">Nutrition and Dietetics</a></li>
+        <li><a href="#psychiatry">Psychiatry</a></li>
+        <li><a href="#emergency-services">Emergency Services</a></li>
+        <li><a href="#intensive-care-unit">Intensive Care Unit</a></li>
+        <li><a href="#laboratory-services">Laboratory Services</a></li>
+    </ol>
+     
+    <h3>Closer view of the services</h3>
+    <ol>
+        <li id="general-medicine">
+        <div class="slideshow-container">
+            <div>
+        <h4 id="general-medicine">General Medicine</h4>
+        <p>Our general medicine department provides comprehensive care for a wide range of medical conditions.</p>
+        <p>In our modern hospital, every medicine is available, and pain-relief medicines are free for children under 10 and adults over 60.</p>
+        
+        <p>This Service Department is led by James.<br>Contact: 0736829174</p>
+        <p>NOTE: The contacts are supervised by AI, so use appropriate language.</p>
+    </div>
+        <div class="slideshow" id="general-medicine-slideshow">
+                <img src="general.webp" alt="General Medicine 1" class="active">
+                <img src="general2.webp" alt="General Medicine 2">
+                <img src="general3.webp" alt="General Medicine 3">
+        </div>
+    </div>
+        </li>
+
+        <li id="surgery">
+        <div class="slideshow-container">
+            <div>
+                <h4>Surgery</h4>
+                <p>We offer a variety of surgical performed by experienced surgeons in all aspects or we mean the whole boby surgeons.</p>
+            </div>
+            <div class="slideshow" id="surgery-slideshow">
+                <img src="surgery.webp" alt="Surgery 1" class="active">
+                <img src="surgery2.webp" alt="Surgery 2">
+                <img src="surgery3.webp" alt="Surgery 3">
+                <img src="surgery4.webp" alt="Surgery4">
+            </div>
+        </div>
+    </li>
+
+    </ol>
+     <h3 id="management">MANAGEMENT</h3>
+    <ul style="list-style: none; padding-left: 0;">
+        <li>
+            <span class="hover-name">MANAGER HIMSELF: <strong>NGULO JAMES</strong>
+                <img src="manager.jpg" class="hover-img" alt="Ngulo James">
+            </span>
+        </li>
+        <li>
+            <span class="hover-name">CHIEF ADVISER: <strong>JIMMY ANTONY</strong>
+                <img src="advisor.jpeg" class="hover-img" alt="Jimmy Antony">
+            </span>
+        </li>
+        <li>
+            <span class="hover-name">SPONSER: <strong>C.RONALDO</strong>
+                <img src="ronaldo.jpeg" class="hover-img" alt="C.Ronaldo">
+            </span>
+        </li>
+        <li>
+            BODY OF CHAIRMANS:
+            <ul>
+                <li>
+                    <span class="hover-name"><strong>FRAN GARCIA</strong>
+                        <img src="fran.jpg" class="hover-img" alt="Fran Garcia">
+                    </span>
+                </li>
+                <li>
+                    <span class="hover-name"><strong>THOMAS PARTEY</strong>
+                        <img src="thomas.jpg" class="hover-img" alt="Thomas Partey">
+                    </span>
+                </li>
+                <li>
+                    <span class="hover-name"><strong>DAVID RAYA</strong>
+                        <img src="david.jpg" class="hover-img" alt="David Raya">
+                    </span>
+                </li>
+                <li>
+                    <span class="hover-name"><strong>GAUCHO STEPHANO</strong>
+                        <img src="gaucho.jpg" class="hover-img" alt="Gaucho Stephano">
+                    </span>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <footer id="contact">
+        <p>&copy; 2025 JAN HOSPITAL. All rights reserved.</p>
+        <p>Contact us: <a href="mailto:info@janhospital.com">info@janhospital.com</a></p>
+    </footer>
+
+    <script>
+    // Function to handle the slideshow
+    function startSlideshow(slideshowId) {
+        const slideshow = document.getElementById(slideshowId);
+        if (!slideshow) return; // Prevent error if element not found
+        const images = slideshow.querySelectorAll("img");
+        if (images.length === 0) return; // No images to show
+
+        let currentIndex = 0;
+
+        setInterval(() => {
+            images[currentIndex].classList.remove("active");
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].classList.add("active");
+        }, 3000); // Change image every 3 seconds
+    }
+
+    // Wait for DOM to be fully loaded before starting slideshows
+    document.addEventListener("DOMContentLoaded", function () {
+        startSlideshow("general-medicine-slideshow");
+        startSlideshow("surgery-slideshow");
+        // Add more calls for other services if needed
+    });
+</script>
+</body>
+</html>
+
+
+
+
+
