@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Our Hospital</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#team">Management Team</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>Our hospital offers the best healthcare services in the region with a team of dedicated professionals.</p>
+    </section>
+
+    <section id="services">
+        <h2>Our Services</h2>
+        <ul>
+            <li>Emergency Care</li>
+            <li>Surgery</li>
+            <li>Pediatrics</li>
+            <li>Cardiology</li>
+            <li>Oncology</li>
+        </ul>
+    </section>
+
+    <section id="team">
+        <h2>Meet Our Management Team</h2>
+        <div class="team-member">
+            <img src="manager1.jpg" alt="Manager 1" class="hover-image">
+            <p>Dr. Jane Doe</p>
+        </div>
+        <div class="team-member">
+            <img src="manager2.jpg" alt="Manager 2" class="hover-image">
+            <p>Dr. John Smith</p>
+        </div>
+        <!-- Add more team members as needed -->
+    </section>
+
+    <section id="slideshow">
+        <h2>Our Facilities</h2>
+        <div class="slideshow-container">
+            <div class="mySlides fade">
+                <img src="slide1.jpg" style="width:100%">
+            </div>
+            <div class="mySlides fade">
+                <img src="slide2.jpg" style="width:100%">
+            </div>
+            <div class="mySlides fade">
+                <img src="slide3.jpg" style="width:100%">
+            </div>
+        </div>
+        <br>
+        <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+    </section>
+
+    <script>
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        setTimeout(showSlides, 5000); // Change image every 5 seconds
+    }
+    </script>
+</body>
+</html>
